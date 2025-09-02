@@ -13,3 +13,7 @@ body {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
+
+/* *:not(html, body) {
+    outline: 1px solid red;
+} */
