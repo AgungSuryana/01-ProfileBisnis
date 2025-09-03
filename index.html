@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nama Bisnis Anda</title>
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="app.js"></script>
     <link rel="stylesheet" href="style.css">
 
     <!-- Google Fonts -->
@@ -47,79 +47,115 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800">
+    <!-- Header / Navigation -->
+    <header id="main-header" class="sticky top-0 z-40 w-full transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <svg class="h-8 w-8 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a16.95 16.95 0 00-2.58-.22m2.58 2.78a16.92 16.92 0 01-2.58-.22m0 0A16.92 16.92 0 019 12.13M9 12.13l-1.57-1.57m1.57 1.57l1.57 1.57m0 0l-1.57 1.57m1.57-1.57l1.57-1.57m6.72-.218c.09.05.18.1.27.16a15.01 15.01 0 014.42 4.42c.06.09.11.18.16.27m-1.92-5.02a15.01 15.01 0 01-4.42 4.42" />
+                    </svg>
+                    <span class="font-bold text-xl text-gray-900">Logo/Nama Bisnis</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="font-semibold text-gray-700 hover:text-red-500 transition">Home</a>
+                    <a href="#About" class="font-semibold text-gray-700 hover:text-red-500 transition">About</a>
+                    <a href="#Menu" class="font-semibold text-gray-700 hover:text-red-500 transition">Menu</a>
+                    <a href="#Product" class="font-semibold text-gray-700 hover:text-red-500 transition">Product</a>
+                </div>
+
+                <!-- Order Button & Mobile Menu Toggle -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://wa.me/6285174380520?text=Contoh%Halo%20saya%20ingin%20memesan" target="_blank"
+                        class="hidden sm:inline-block bg-gray-800 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gray-900 transition">
+                        Pesan Sekarang
+                    </a>
+
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Fullscreen Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-50 flex flex-col items-start justify-center p-8 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
+
+        <button id="close-menu-button" class="absolute top-5 right-5 p-2 text-gray-700 hover:text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div class="w-full flex flex-col gap-6">
+            <!-- Menu Item Example -->
+            <a href="#" class="relative w-full flex items-center group">
+                <!-- Text di kiri -->
+                <span class="text-2xl font-semibold text-gray-700 group-hover:text-red-500">Home</span>
+                <!-- Garis di bawah teks -->
+                <span class="absolute left-0 bottom-0 w-full h-0.5 bg-gray-300"></span>
+                <!-- Icon panah di kanan -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-auto text-gray-700 group-hover:text-red-500"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <a href="#About" class="relative w-full flex items-center group">
+                <span class="text-2xl font-semibold text-gray-700 group-hover:text-red-500">About</span>
+                <span class="absolute left-0 bottom-0 w-full h-0.5 bg-gray-300"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-auto text-gray-700 group-hover:text-red-500"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <a href="#Menu" class="relative w-full flex items-center group">
+                <span class="text-2xl font-semibold text-gray-700 group-hover:text-red-500">Menu</span>
+                <span class="absolute left-0 bottom-0 w-full h-0.5 bg-gray-300"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-auto text-gray-700 group-hover:text-red-500"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <a href="#Product" class="relative w-full flex items-center group">
+                <span class="text-2xl font-semibold text-gray-700 group-hover:text-red-500">Product</span>
+                <span class="absolute left-0 bottom-0 w-full h-0.5 bg-gray-300"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-auto text-gray-700 group-hover:text-red-500"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <!-- Tambahkan menu lain sesuai kebutuhan -->
+
+            <!-- Button Pesan Sekarang full width -->
+            <a href="https://wa.me/6285174380520?text=Halo%20saya%20ingin%20memesan" target="_blank"
+                class="mt-6 w-full py-3 px-4 text-lg bg-gray-800 text-white rounded-lg text-center">
+                Pesan Sekarang
+            </a>
+        </div>
+    </div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Header / Navigation -->
-        <header id="main-header" class="sticky top-0 z-40 w-full transition-all duration-300">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <nav class="flex items-center justify-between py-4">
-                    <!-- Logo -->
-                    <a href="#" class="flex items-center space-x-2">
-                        <svg class="h-8 w-8 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a16.95 16.95 0 00-2.58-.22m2.58 2.78a16.92 16.92 0 01-2.58-.22m0 0A16.92 16.92 0 019 12.13M9 12.13l-1.57-1.57m1.57 1.57l1.57 1.57m0 0l-1.57 1.57m1.57-1.57l1.57-1.57m6.72-.218c.09.05.18.1.27.16a15.01 15.01 0 014.42 4.42c.06.09.11.18.16.27m-1.92-5.02a15.01 15.01 0 01-4.42 4.42" />
-                        </svg>
-                        <span class="font-bold text-xl text-gray-900">Logo/Nama Bisnis</span>
-                    </a>
-
-                    <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-8">
-                        <a href="#" class="text-gray-600 hover:text-red-500 transition">Home</a>
-                        <a href="#About" class="text-gray-600 hover:text-red-500 transition">About</a>
-                        <a href="#Menu" class="text-gray-600 hover:text-red-500 transition">Menu</a>
-                        <a href="#Product" class="text-gray-600 hover:text-red-500 transition">Product</a>
-                    </div>
-
-                    <!-- Order Button & Mobile Menu Toggle -->
-                    <div class="flex items-center space-x-4">
-                        <a href="https://wa.me/6285174380520?text=Contoh%Halo%20saya%20ingin%20memesan" target="_blank"
-                            class="hidden sm:inline-block bg-gray-800 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gray-900 transition">
-                            Pesan Sekarang
-                        </a>
-
-                        <button id="mobile-menu-button"
-                            class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h16m-7 6h7" />
-                            </svg>
-                        </button>
-                    </div>
-                </nav>
-            </div>
-        </header>
-
-        <!-- Fullscreen Mobile Menu -->
-        <div id="mobile-menu"
-            class="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-8 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
-            <button id="close-menu-button" class="absolute top-5 right-5 p-2 text-gray-700 hover:text-red-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <div class="text-center">
-                <a href="#"
-                    class="block py-3 text-2xl font-semibold text-gray-700 hover:text-red-500 transition">Home</a>
-                <a href="#About"
-                    class="block py-3 text-2xl font-semibold text-gray-700 hover:text-red-500 transition">About</a>
-                <a href="#Menu"
-                    class="block py-3 text-2xl font-semibold text-gray-700 hover:text-red-500 transition">Menu</a>
-                <a href="#Product"
-                    class="block py-3 text-2xl font-semibold text-gray-700 hover:text-red-500 transition">Product</a>
-                <a href="https://wa.me/6285174380520?text=Contoh%Halo%20saya%20ingin%20memesan" target="_blank" class=" mt-6 inline-block w-full max-w-xs py-3 px-4 text-lg bg-gray-800 text-white
-                    rounded-lg">Pesan
-                    Sekarang</a>
-            </div>
-        </div>
-
         <main>
             <!-- Hero Section -->
-            <section
-                class="relative rounded-3xl overflow-hidden my-8 min-h-[400px] md:min-h-[500px] flex items-center justify-center text-center p-8">
+            <section data-aos="zoom-in"
+                class="relative rounded-3xl overflow-hidden my-8 min-h-[500px] md:min-h-[600px] flex items-center justify-center text-center p-8">
                 <!-- Background Image -->
                 <img src="/image/foto 1.jpg" alt="Food"
                     class="absolute inset-0 w-full h-full object-cover object-center z-0">
@@ -128,7 +164,7 @@
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
 
                 <!-- Content -->
-                <div class="relative z-20 text-white">
+                <div data-aos="zoom-in" class="relative z-20 text-white">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
                         style="text-shadow: 2px 2px 6px rgba(0,0,0,0.6);">
                         Tulis Kalimat Promosi atau Tagline Anda
@@ -141,10 +177,10 @@
             </section>
 
             <!-- How It Works Section -->
-            <section class="py-16">
+            <section class="py-14 md:py-16">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1 -->
-                    <div class="bg-yellow-200/50 p-6 rounded-2xl flex items-center justify-between">
+                    <div data-aos="zoom-in" class="bg-yellow-200/50 p-6 rounded-2xl flex items-center justify-between">
                         <div>
                             <h3 class="font-bold text-lg text-gray-900">Pilih Menu</h3>
                             <p class="text-sm text-gray-600 mt-1">Tuliskan petunjuk agar pengguna bisa memilih Menu
@@ -162,7 +198,7 @@
                         </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="bg-orange-200/50 p-6 rounded-2xl flex items-center justify-between">
+                    <div data-aos="zoom-in" class="bg-orange-200/50 p-6 rounded-2xl flex items-center justify-between">
                         <div>
                             <h3 class="font-bold text-lg text-gray-900">Rasakan Kelezatan</h3>
                             <p class="text-sm text-gray-600 mt-1">Hidangan disajikan dengan cita rasa terbaik, segar dan
@@ -182,7 +218,7 @@
                         </div>
                     </div>
                     <!-- Card 3 -->
-                    <div class="bg-rose-200/50 p-6 rounded-2xl flex items-center justify-between">
+                    <div data-aos="zoom-in" class="bg-rose-200/50 p-6 rounded-2xl flex items-center justify-between">
                         <div>
                             <h3 class="font-bold text-lg text-gray-900">Suasana Nyaman</h3>
                             <p class="text-sm text-gray-600 mt-1">Nikmati waktu makan yang menyenangkan dengan layanan
@@ -206,10 +242,10 @@
             </section>
 
             <!-- About Us Section -->
-            <section id="About" class="py-20">
+            <section id="About" class=" py-12 sm:py-20">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <!-- Text Content -->
-                    <div class="text-gray-800">
+                    <div data-aos="zoom-in" class="text-gray-800">
                         <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-6 leading-tight">
                             Masukkan Judul Promosi / Tagline Produk Anda (WAJIB DIISI)
                         </h2>
@@ -221,7 +257,8 @@
                     </div>
 
                     <!-- Image Content -->
-                    <div class="relative p-8 bg-gradient-to-br from-red-100 via-red-50 to-pink-100 rounded-3xl">
+                    <div data-aos="zoom-in"
+                        class="relative p-8 bg-gradient-to-br from-red-100 via-red-50 to-pink-100 rounded-3xl">
                         <img src="/image/foto 2.jpg" alt="Food"
                             class="w-full rounded-3xl h-full object-contain relative z-10">
                         <!-- Floating Tags -->
@@ -242,7 +279,7 @@
             </section>
 
             <!-- Our Menu Section -->
-            <section id="Menu" class="py-16">
+            <section id="Menu" data-aos="zoom-in" class="py-16">
                 <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg">
                     <div class="text-center mb-12">
                         <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-playfair">
@@ -257,7 +294,7 @@
                     <div class="max-w-5xl mx-auto">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
                             <!-- Category: Main Courses -->
-                            <div>
+                            <div data-aos="zoom-in">
                                 <h3
                                     class="text-2xl font-bold font-playfair mb-6 text-red-600 border-b-2 border-red-200 pb-2">
                                     Main Courses</h3>
@@ -289,7 +326,7 @@
                                 </ul>
                             </div>
                             <!-- Category: Appetizers -->
-                            <div>
+                            <div data-aos="zoom-in">
                                 <h3
                                     class="text-2xl font-bold font-playfair mb-6 text-red-600 border-b-2 border-red-200 pb-2">
                                     Appetizers</h3>
@@ -313,7 +350,7 @@
                                 </ul>
                             </div>
                             <!-- Category: Desserts -->
-                            <div>
+                            <div data-aos="zoom-in">
                                 <h3
                                     class="text-2xl font-bold font-playfair mb-6 text-red-600 border-b-2 border-red-200 pb-2">
                                     Desserts</h3>
@@ -337,7 +374,7 @@
                                 </ul>
                             </div>
                             <!-- Category: Beverages -->
-                            <div>
+                            <div data-aos="zoom-in">
                                 <h3
                                     class="text-2xl font-bold font-playfair mb-6 text-red-600 border-b-2 border-red-200 pb-2">
                                     Beverages</h3>
@@ -365,8 +402,8 @@
             </section>
 
             <!-- Explore Restaurants Section -->
-            <section id="Product" class="py-20">
-                <div class="text-center">
+            <section id="Product" class="py-12 sm:py-20">
+                <div data-aos="zoom-in" class="text-center">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Masukkan tagline atau judul menarik di
                         sini.</h2>
                     <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Masukkan informasi yang ingin disampaikan ke
@@ -375,7 +412,7 @@
 
                 <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Restaurant Card 1 -->
-                    <div
+                    <div data-aos="zoom-in"
                         class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group">
                         <div class="overflow-hidden">
                             <!-- <img src="image/file_foto_anda.jpg" alt="Product 1"
@@ -400,7 +437,7 @@
                         </div>
                     </div>
                     <!-- Restaurant Card 2 -->
-                    <div
+                    <div data-aos="zoom-in"
                         class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group">
                         <div class="overflow-hidden">
                             <!-- <img src="image/file_foto_anda.jpg" alt="Product 1"
@@ -424,7 +461,7 @@
                         </div>
                     </div>
                     <!-- Restaurant Card 3 -->
-                    <div
+                    <div data-aos="zoom-in"
                         class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group">
                         <div class="overflow-hidden">
                             <!-- <img src="image/file_foto_anda.jpg" alt="Product 1"
@@ -448,7 +485,7 @@
                         </div>
                     </div>
                     <!-- Restaurant Card 4 -->
-                    <div
+                    <div data-aos="zoom-in"
                         class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group">
                         <div class="overflow-hidden">
                             <!-- <img src="image/file_foto_anda.jpg" alt="Product 1"
@@ -472,7 +509,7 @@
                         </div>
                     </div>
                     <!-- Restaurant Card 5 -->
-                    <div
+                    <div data-aos="zoom-in"
                         class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group">
                         <div class="overflow-hidden">
                             <!-- <img src="image/file_foto_anda.jpg" alt="Product 1"
@@ -496,7 +533,7 @@
                         </div>
                     </div>
                     <!-- Restaurant Card 6 -->
-                    <div
+                    <div data-aos="zoom-in"
                         class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group">
                         <div class="overflow-hidden">
                             <!-- <img src="image/file_foto_anda.jpg" alt="Product 1"
@@ -601,7 +638,12 @@
         </div>
     </footer>
 
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200 });
 
+    </script>
 </body>
 
 </html>
